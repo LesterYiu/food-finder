@@ -1,8 +1,13 @@
 // font import
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800;900&family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Poppins:wght@500&display=swap');
 
-// foundation imports
+// variables
+
 @import './partials/variables';
+
+// foundation imports
+@import './partials/nav';
+@import './partials/home';
 @import './partials/typography';
 @import './partials/setup';
 @import './partials/base';

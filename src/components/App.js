@@ -3,7 +3,6 @@ import {Routes, Route} from 'react-router-dom'
 
 import Home from './Home';
 import Options from './Options';
-import Gallery from './Gallery';
 import Footer from './Footer';
 
 
@@ -14,7 +13,6 @@ function App() {
         <>
           <Options/>
           <Home/>
-          <Gallery/>
           <Footer/>
         </>
       }/>

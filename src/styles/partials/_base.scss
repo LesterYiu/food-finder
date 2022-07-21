@@ -4,6 +4,10 @@
     margin: 0 auto;
 }
 
+.flexContainer {
+    display: flex;
+}
+
 ul {
     list-style: none;
     margin: 0;
@@ -34,4 +38,8 @@ h3 {
 
 p {
     margin: 0;
+}
+
+#root {
+    display: flex;
 }
