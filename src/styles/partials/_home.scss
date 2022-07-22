@@ -6,6 +6,7 @@ body {
 
 main {
     width: 100%;
+    position: relative;
 }
 
 .homeSection {
@@ -26,5 +27,30 @@ main {
         i {
             padding-right: 20px;
         }
+    }
+}
+
+.bowlImage {
+    width: 200px;
+    height: auto;
+    position: absolute;
+    top: -150px;
+
+    img {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.bowlImageTwo {
+    width: 200px;
+    height: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    img {
+        height: 100%;
+        width: 100%;
     }
 }

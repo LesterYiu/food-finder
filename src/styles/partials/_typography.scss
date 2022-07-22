@@ -24,14 +24,24 @@ h3 {
     text-align: center;
 }
 
+// Nav / Options
+
 .logoText {
     font-size: 1.3rem;
     font-family: $tertiary-font;
     font-weight: 700;
 }
 
+// Home
+
 .searchButton {
     font-family: $tertiary-font;
     color: rgba(0,0,0,0.4);
     text-align: start;
+}
+
+// Gallery
+
+.gallerySection h1 {
+    color: rgba(0,0,0,0.7);
 }
