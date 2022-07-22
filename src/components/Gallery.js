@@ -19,7 +19,6 @@ const Gallery = () => {
     return(
         <section className="gallerySection">
             <div className="wrapper">
-                <h1>What type of cuisines are you craving for?</h1>
                 <Form/>
             </div>
         </section>

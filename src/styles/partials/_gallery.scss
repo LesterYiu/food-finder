@@ -1,4 +1,17 @@
 .gallerySection {
     padding: 75px 0;
     text-align: center;
+
+    .rec-dot {
+        display: none;
+    }
+
+    legend {
+        width: 100%;
+        margin-bottom: 75px;
+    }
+
+    // .rec.rec-arrow:hover {
+    //     color: red;
+    // }
 }
