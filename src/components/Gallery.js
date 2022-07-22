@@ -1,4 +1,5 @@
 import axios from "axios";
+import Form from "./Form";
 
 const Gallery = () => {
 
@@ -19,8 +20,10 @@ const Gallery = () => {
         <section className="gallerySection">
             <div className="wrapper">
                 <h1>What type of cuisines are you craving for?</h1>
+                <Form/>
             </div>
         </section>
+
     )
 }
 
