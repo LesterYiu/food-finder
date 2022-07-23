@@ -11,7 +11,51 @@
         margin-bottom: 75px;
     }
 
-    // .rec.rec-arrow:hover {
-    //     color: red;
-    // }
+    .rec.rec-arrow-right,
+    .rec.rec-arrow-left {
+        background-color: $quaternary;
+    }
+
+    .rec.rec-arrow:hover {
+        background-color: $primary;
+    }
+
+    .choice {
+        display: block;
+        height: 200px;
+        width: 200px;
+        filter: brightness(65%);
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: 50%;
+    }
+    
+    .foodContainer {
+        position: relative;
+    }
+
+    .cuisineIdentifier {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+    }
+
+    .african {
+        background-image: url('../../assets/african.jpeg');
+        background-position-x: 30%;
+    }
+
+    .american {
+        background-image: url('../../assets/american.jpg');
+    }
+
+    .british {
+        background-image: url('../../assets/british.png');
+    }
+
+    .cajun {
+        background-image: url('../../assets/cajun.jpg');
+    }
 }
