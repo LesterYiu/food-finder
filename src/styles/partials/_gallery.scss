@@ -34,7 +34,8 @@
         border-radius: 50%;
     }
     
-    .foodContainer {
+    .foodContainer,
+    .allergyContainer {
         position: relative;
     }
 
@@ -46,114 +47,18 @@
         color: white;
     }
 
-    .african {
-        background-image: url('../../assets/african.jpeg');
-        background-position-x: 30%;
-    }
+    button[type='submit'] {
+        background-color: $primary;
+        color: white;
+        border: none;
+        padding: 10px 50px;
+        border-radius: 25px;
+        margin-top: 60px;
+        transition: all 0.5s ease;
 
-    .american {
-        background-image: url('../../assets/american.jpg');
-    }
-
-    .british {
-        background-image: url('../../assets/british.png');
-    }
-
-    .cajun {
-        background-image: url('../../assets/cajun.jpg');
-    }
-
-    .carribean {
-        background-image: url('../../assets/caribbean.png');
-    }
-
-    .chinese {
-        background-image: url('../../assets/chinese.jpg');
-    }
-
-    .french {
-        background-image: url('../../assets/french.jpg');
-    }
-
-    .easternEuropean {
-        background-image: url('../../assets/easternEuropean.jpg');
-    }
-
-    .european {
-        background-image: url('../../assets/european.jpeg');
-    }
-
-    .german {
-        background-image: url('../../assets/german.jpg');
-    }
-
-    .greek {
-        background-image: url('../../assets/greek.jpg');
-    }
-
-    .indian {
-        background-image: url('../../assets/indian.jpg');
-    }
-
-    .irish {
-        background-image: url('../../assets/irish.jpg');
-    }
-
-    .italian {
-        background-image: url('../../assets/italian.png');
-    }
-
-    .japanese {
-        background-image: url('../../assets/japanese.jpg');
-    }
-
-    .jewish {
-        background-image: url('../../assets/jewish.jpg');
-    }
-
-    .korean {
-        background-image: url('../../assets/korean.jpg');
-    }
-
-    .latinAmerican {
-        background-image: url('../../assets/latinAmerican.jpg');
-    }
-
-    .mediterranean {
-        background-image: url('../../assets/mediterranean.jpg');
-    }
-
-    .mexican {
-        background-image: url('../../assets/mexican.jpg');
-    }
-
-    .middleEastern {
-        background-image: url('../../assets/middleEastern.jpg');
-    }
-
-    .nordic {
-        background-image: url('../../assets/nordic.jpg');
-    }
-
-    .southern {
-        background-image: url('../../assets/southern.jpg');
-    }
-
-    .spanish {
-        background-image: url('../../assets/spanish.jpg');
-    }
-
-    .thai {
-        background-image: url('../../assets/thai.jpg');
-    }
-
-    .vietnamese {
-        background-image: url('../../assets/vietnamese.jpg');
-    }
-
-    .checked { 
-        background: $primary;
-        filter: brightness(90%);
-        transition: all 0.1s ease;
+        &:hover,
+        &:focus {
+            color: black;
+        }
     }
 }

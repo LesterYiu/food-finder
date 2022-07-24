@@ -1,6 +1,7 @@
-import CuisineForm from './CuisineForm';
 import axios from "axios";
 import { useState } from 'react';
+import CuisineForm from './CuisineForm';
+import IntoleranceForm from "./IntoleranceForm";
 
 const breakPoints = [
     {width: 1, itemsToShow: 2},
@@ -11,6 +12,7 @@ const breakPoints = [
 
 const Form = () => {
     const [userCuisine, setUserCuisine] = useState([]);
+    const [isFirstQuestion, setIsFirstQuestion] = useState(true);
 
     // axios({
     //     url: 'https://api.spoonacular.com/recipes/complexSearch',
@@ -26,7 +28,10 @@ const Form = () => {
     // })
 
     return(
-        <CuisineForm breakPoints={breakPoints} setUserCuisine={setUserCuisine} userCuisine={userCuisine}/>
+        <>
+            {isFirstQuestion ? <CuisineForm breakPoints={breakPoints} setUserCuisine={setUserCuisine} userCuisine={userCuisine} setIsFirstQuestion={setIsFirstQuestion}/> : null}
+            {isFirstQuestion === false ? <IntoleranceForm breakPoints={breakPoints}/> : null}
+        </>
     )
 }
 
