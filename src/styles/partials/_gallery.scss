@@ -2,6 +2,10 @@
     padding: 75px 0;
     text-align: center;
 
+    .wrapper {
+        width: 95%;
+    }
+
     .rec-dot {
         display: none;
     }
@@ -22,8 +26,8 @@
 
     .choice {
         display: block;
-        height: 200px;
-        width: 200px;
+        height: 175px;
+        width: 175px;
         filter: brightness(65%);
         background-size: cover;
         background-repeat: no-repeat;
@@ -57,5 +61,99 @@
 
     .cajun {
         background-image: url('../../assets/cajun.jpg');
+    }
+
+    .carribean {
+        background-image: url('../../assets/caribbean.png');
+    }
+
+    .chinese {
+        background-image: url('../../assets/chinese.jpg');
+    }
+
+    .french {
+        background-image: url('../../assets/french.jpg');
+    }
+
+    .easternEuropean {
+        background-image: url('../../assets/easternEuropean.jpg');
+    }
+
+    .european {
+        background-image: url('../../assets/european.jpeg');
+    }
+
+    .german {
+        background-image: url('../../assets/german.jpg');
+    }
+
+    .greek {
+        background-image: url('../../assets/greek.jpg');
+    }
+
+    .indian {
+        background-image: url('../../assets/indian.jpg');
+    }
+
+    .irish {
+        background-image: url('../../assets/irish.jpg');
+    }
+
+    .italian {
+        background-image: url('../../assets/italian.png');
+    }
+
+    .japanese {
+        background-image: url('../../assets/japanese.jpg');
+    }
+
+    .jewish {
+        background-image: url('../../assets/jewish.jpg');
+    }
+
+    .korean {
+        background-image: url('../../assets/korean.jpg');
+    }
+
+    .latinAmerican {
+        background-image: url('../../assets/latinAmerican.jpg');
+    }
+
+    .mediterranean {
+        background-image: url('../../assets/mediterranean.jpg');
+    }
+
+    .mexican {
+        background-image: url('../../assets/mexican.jpg');
+    }
+
+    .middleEastern {
+        background-image: url('../../assets/middleEastern.jpg');
+    }
+
+    .nordic {
+        background-image: url('../../assets/nordic.jpg');
+    }
+
+    .southern {
+        background-image: url('../../assets/southern.jpg');
+    }
+
+    .spanish {
+        background-image: url('../../assets/spanish.jpg');
+    }
+
+    .thai {
+        background-image: url('../../assets/thai.jpg');
+    }
+
+    .vietnamese {
+        background-image: url('../../assets/vietnamese.jpg');
+    }
+
+    .checked { 
+        background: $primary;
+        filter: brightness(90%);
+        transition: all 0.1s ease;
     }
 }
