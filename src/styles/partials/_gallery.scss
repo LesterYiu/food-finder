@@ -20,7 +20,8 @@
         background-color: $quaternary;
     }
 
-    .rec.rec-arrow:hover {
+    .rec.rec-arrow:hover,
+    .rec.rec-arrow:focus {
         background-color: $primary;
     }
 

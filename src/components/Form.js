@@ -12,7 +12,9 @@ const breakPoints = [
 
 const Form = () => {
     const [userCuisine, setUserCuisine] = useState([]);
+    const [userAllergy, setUserAllergy] = useState([]);
     const [isFirstQuestion, setIsFirstQuestion] = useState(true);
+    const [isSecondQuestion, setIsSecondQuestion] = useState(false);
 
     // axios({
     //     url: 'https://api.spoonacular.com/recipes/complexSearch',
@@ -29,8 +31,8 @@ const Form = () => {
 
     return(
         <>
-            {isFirstQuestion ? <CuisineForm breakPoints={breakPoints} setUserCuisine={setUserCuisine} userCuisine={userCuisine} setIsFirstQuestion={setIsFirstQuestion}/> : null}
-            {isFirstQuestion === false ? <IntoleranceForm breakPoints={breakPoints}/> : null}
+            {isFirstQuestion ? <CuisineForm breakPoints={breakPoints} setUserCuisine={setUserCuisine} userCuisine={userCuisine} setIsFirstQuestion={setIsFirstQuestion} setIsSecondQuestion={setIsSecondQuestion}/> : null}
+            {isSecondQuestion ? <IntoleranceForm breakPoints={breakPoints} setUserAllergy={setUserAllergy} userAllergy={userAllergy}/> : null}
         </>
     )
 }
