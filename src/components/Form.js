@@ -37,7 +37,7 @@ const Form = () => {
         <>
             {isFirstQuestion ? <CuisineForm breakPoints={breakPoints} setUserCuisine={setUserCuisine} userCuisine={userCuisine} setIsFirstQuestion={setIsFirstQuestion} setIsSecondQuestion={setIsSecondQuestion}/> : null}
             {isSecondQuestion ? <IntoleranceForm breakPoints={breakPoints} setUserAllergy={setUserAllergy} userAllergy={userAllergy} setIsThirdQuestion={setIsThirdQuestion} setIsSecondQuestion={setIsSecondQuestion}/> : null}
-            {isThirdQuestion ? <DietForm /> : null}
+            {isThirdQuestion ? <DietForm breakPoints={breakPoints} /> : null}
         </>
     )
 }
