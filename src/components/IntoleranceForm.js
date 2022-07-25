@@ -15,7 +15,7 @@ import wheat from '../assets/wheat.png';
 import { useState } from 'react';
 
 const IntoleranceForm = (props) => {
-    const {breakPoints, setUserAllergy, userAllergy} = props;
+    const {breakPoints, setUserAllergy, userAllergy, setIsThirdQuestion, setIsSecondQuestion} = props;
 
     const [isDairyChecked, setIsDairyChecked] = useState(false);
     const [isEggChecked, setIsEggChecked] = useState(false);
@@ -53,7 +53,17 @@ const IntoleranceForm = (props) => {
         setAllergyFunc(false);
     }
 
-    console.log(userAllergy);
+    const handleInfoClick = (e, setAllergyFunc) => {
+        const input = e.target.offsetParent.offsetParent.childNodes[1];
+        input.checked = true;
+        setUserAllergy([input.value, ...userAllergy]);
+        setAllergyFunc(true);
+    }
+
+    const handleSubmit = () => {
+        setIsSecondQuestion(false);
+        setIsThirdQuestion(true);
+    }
 
     return(
         <form name="intoleranceForm">
@@ -62,7 +72,7 @@ const IntoleranceForm = (props) => {
                 <div className="allergyContainer">
                     <label htmlFor="dairy" className='dairy choice'><span className="sr-only">Dairy</span></label>
                     <input type="checkbox" id='dairy' value='dairy' className='sr-only' onClick={(e) => {handleClick(e, setIsDairyChecked)}}/>
-                    <div className="allergyInfoContainer">
+                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClick(e, setIsDairyChecked)}}>
                         <div className="iconContainer">
                             <img src={dairy} alt="" />
                         </div>
@@ -73,7 +83,7 @@ const IntoleranceForm = (props) => {
                 <div className="allergyContainer">
                     <label htmlFor="egg" className='choice'><span className="sr-only">Egg</span></label>
                     <input type="checkbox" id='egg' value='egg' className='sr-only' onClick={(e) => {handleClick(e, setIsEggChecked)}}/>
-                    <div className="allergyInfoContainer">
+                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClick(e, setIsEggChecked)}}>
                         <div className="iconContainer">
                             <img src={egg} alt="" />
                         </div>
@@ -84,7 +94,7 @@ const IntoleranceForm = (props) => {
                 <div className="allergyContainer">
                     <label htmlFor="gluten" className='choice'><span className="sr-only">Gluten</span></label>
                     <input type="checkbox" id='gluten' value='gluten' className='sr-only' onClick={(e) => {handleClick(e, setIsGlutenChecked)}}/>
-                    <div className="allergyInfoContainer">
+                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClick(e, setIsGlutenChecked)}}>
                         <div className="iconContainer">
                             <img src={gluten} alt="" />
                         </div>
@@ -95,7 +105,7 @@ const IntoleranceForm = (props) => {
                 <div className="allergyContainer">
                     <label htmlFor="grain" className='choice'><span className="sr-only">Grain</span></label>
                     <input type="checkbox" id='grain' value='grain' className='sr-only' onClick={(e) => {handleClick(e, setIsGrainChecked)}}/>
-                    <div className="allergyInfoContainer">
+                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClick(e, setIsGrainChecked)}}>
                         <div className="iconContainer">
                             <img src={grain} alt="" />
                         </div>
@@ -106,7 +116,7 @@ const IntoleranceForm = (props) => {
                 <div className="allergyContainer">
                     <label htmlFor="peanut" className='choice'><span className="sr-only">Peanut</span></label>
                     <input type="checkbox" id='peanut' value='peanut' className='sr-only' onClick={(e) => {handleClick(e, setIsPeanutChecked)}}/>
-                    <div className="allergyInfoContainer">
+                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClick(e, setIsPeanutChecked)}}>
                         <div className="iconContainer">
                             <img src={peanut} alt="" />
                         </div>
@@ -117,7 +127,7 @@ const IntoleranceForm = (props) => {
                 <div className="allergyContainer">
                     <label htmlFor="seafood" className='choice'><span className="sr-only">Seafood</span></label>
                     <input type="checkbox" id='seafood' value='seafood' className='sr-only' onClick={(e) => {handleClick(e, setIsSeafoodChecked)}}/>
-                    <div className="allergyInfoContainer">
+                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClick(e, setIsSeafoodChecked)}}>
                         <div className="iconContainer">
                             <img src={seafood} alt="" />
                         </div>
@@ -128,7 +138,7 @@ const IntoleranceForm = (props) => {
                 <div className="allergyContainer">
                     <label htmlFor="sesame" className='choice'><span className="sr-only">Sesame</span></label>
                     <input type="checkbox" id='sesame' value='sesame' className='sr-only' onClick={(e) => {handleClick(e, setIsSesameChecked)}}/>
-                    <div className="allergyInfoContainer">
+                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClick(e, setIsSesameChecked)}}>
                         <div className="iconContainer">
                             <img src={sesame} alt="" />
                         </div>
@@ -139,7 +149,7 @@ const IntoleranceForm = (props) => {
                 <div className="allergyContainer">
                     <label htmlFor="shellfish" className='choice'><span className="sr-only">Shellfish</span></label>
                     <input type="checkbox" id='shellfish' value='shellfish' className='sr-only' onClick={(e) => {handleClick(e, setIsShellfishChecked)}}/>
-                    <div className="allergyInfoContainer">
+                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClick(e, setIsShellfishChecked)}}>
                         <div className="iconContainer">
                             <img src={shellfish} alt="" />
                         </div>
@@ -150,7 +160,7 @@ const IntoleranceForm = (props) => {
                 <div className="allergyContainer">
                     <label htmlFor="soy" className='choice'><span className="sr-only">Soy</span></label>
                     <input type="checkbox" id='soy' value='soy' className='sr-only' onClick={(e) => {handleClick(e, setIsSoyChecked)}}/>
-                    <div className="allergyInfoContainer">
+                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClick(e, setIsSoyChecked)}}>
                         <div className="iconContainer">
                             <img src={soy} alt="" />
                         </div>
@@ -161,7 +171,7 @@ const IntoleranceForm = (props) => {
                 <div className="allergyContainer">
                     <label htmlFor="sulfite" className='choice'><span className="sr-only">Sulfite</span></label>
                     <input type="checkbox" id='sulfite' value='sulfite' className='sr-only' onClick={(e) => {handleClick(e, setIsSulfiteChecked)}}/>
-                    <div className="allergyInfoContainer">
+                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClick(e, setIsSulfiteChecked)}}>
                         <div className="iconContainer">
                             <img src={sulfite} alt="" />
                         </div>
@@ -172,7 +182,7 @@ const IntoleranceForm = (props) => {
                 <div className="allergyContainer">
                     <label htmlFor="tree-nut" className='choice'><span className="sr-only">Tree Nut</span></label>
                     <input type="checkbox" id='tree-nut' value='tree nut' className='sr-only' onClick={(e) => {handleClick(e, setIsTreenutChecked)}}/>
-                    <div className="allergyInfoContainer">
+                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClick(e, setIsTreenutChecked)}}>
                         <div className="iconContainer">
                             <img src={treenut} alt="" />
                         </div>
@@ -183,7 +193,7 @@ const IntoleranceForm = (props) => {
                 <div className="allergyContainer">
                     <label htmlFor="wheat" className='choice'><span className="sr-only">wheat</span></label>
                     <input type="checkbox" id='wheat' value='wheat' className='sr-only' onClick={(e) => {handleClick(e, setIsWheatChecked)}}/>
-                    <div className="allergyInfoContainer">
+                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClick(e, setIsWheatChecked)}}>
                         <div className="iconContainer">
                             <img src={wheat} alt="" />
                         </div>
@@ -192,7 +202,7 @@ const IntoleranceForm = (props) => {
                     <div className={isWheatChecked ? 'allergyOverlay' : null} onClick={(e) => {handleOverlayClick(e, setIsWheatChecked)}}></div>
                 </div>
             </Carousel>
-            <button type='submit'>Next</button>
+            <button type='submit' onClick={handleSubmit}>Next</button>
         </form>
     )
 }
