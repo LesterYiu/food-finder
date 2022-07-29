@@ -3,6 +3,7 @@ import { useState } from 'react';
 import CuisineForm from './CuisineForm';
 import IntoleranceForm from "./IntoleranceForm";
 import DietForm from "./DietForm";
+import TypeForm from "./TypeForm";
 
 const breakPoints = [
     {width: 150, itemsToShow: 1},
@@ -19,6 +20,7 @@ const Form = () => {
     const [isFirstQuestion, setIsFirstQuestion] = useState(true);
     const [isSecondQuestion, setIsSecondQuestion] = useState(false);
     const [isThirdQuestion, setIsThirdQuestion] = useState(false);
+    const [isFourthQuestion, setIsFourthQuestion] = useState(false);
 
     // axios({
     //     url: 'https://api.spoonacular.com/recipes/complexSearch',
@@ -38,7 +40,8 @@ const Form = () => {
         <>
             {isFirstQuestion ? <CuisineForm breakPoints={breakPoints} setUserCuisine={setUserCuisine} userCuisine={userCuisine} setIsFirstQuestion={setIsFirstQuestion} setIsSecondQuestion={setIsSecondQuestion}/> : null}
             {isSecondQuestion ? <IntoleranceForm breakPoints={breakPoints} setUserAllergy={setUserAllergy} userAllergy={userAllergy} setIsThirdQuestion={setIsThirdQuestion} setIsSecondQuestion={setIsSecondQuestion}/> : null}
-            {isThirdQuestion ? <DietForm breakPoints={breakPoints} userDiet={userDiet} setUserDiet={setUserDiet}/> : null}
+            {isThirdQuestion ? <DietForm breakPoints={breakPoints} userDiet={userDiet} setUserDiet={setUserDiet} setIsThirdQuestion={setIsThirdQuestion} setIsFourthQuestion={setIsFourthQuestion}/> : null}
+            {isFourthQuestion ? <TypeForm></TypeForm> : null}
         </>
     )
 }

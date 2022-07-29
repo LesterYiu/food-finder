@@ -47,3 +47,7 @@ label {
 #root {
     display: flex;
 }
+
+button[type="submit"]{
+    cursor: pointer;
+}

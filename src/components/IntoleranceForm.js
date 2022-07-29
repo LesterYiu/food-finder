@@ -13,7 +13,7 @@ import treenut from '../assets/treenut.png';
 import wheat from '../assets/wheat.png';
 
 import { useState } from 'react';
-import { handleClicked, handleOverlayClicked, handleInfoClicked } from '../customFunctions/handleClicks';
+import { handleClicked, handleOverlayClicked, handleInfoClicked, handleSubmit } from '../customFunctions/handleClicks';
 
 const IntoleranceForm = (props) => {
     const {breakPoints, setUserAllergy, userAllergy, setIsThirdQuestion, setIsSecondQuestion} = props;
@@ -31,13 +31,8 @@ const IntoleranceForm = (props) => {
     const [isTreenutChecked, setIsTreenutChecked] = useState(false);
     const [isWheatChecked, setIsWheatChecked] = useState(false);
 
-    const handleSubmit = () => {
-        setIsSecondQuestion(false);
-        setIsThirdQuestion(true);
-    }
-
     return(
-        <form name="intoleranceForm">
+        <form name="intoleranceForm" onSubmit={(event) => {handleSubmit(event, setIsSecondQuestion, setIsThirdQuestion)}}>
             <legend><h1>Do you have any food allergies?</h1></legend>
             <Carousel breakPoints={breakPoints}>
                 <div className="allergyContainer">
@@ -173,7 +168,7 @@ const IntoleranceForm = (props) => {
                     <div className={isWheatChecked ? 'checkedOverlay' : null} onClick={(e) => {handleOverlayClicked(e, setIsWheatChecked, userAllergy, setUserAllergy)}}></div>
                 </div>
             </Carousel>
-            <button type='submit' onClick={handleSubmit}>Next</button>
+            <button type='submit'>Next</button>
         </form>
     )
 }

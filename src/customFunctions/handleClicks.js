@@ -4,7 +4,6 @@
     setUserInfoFunc = The state function to set user selection
 */
 
-
 export const handleClicked = (e, setCheckedFunc, userInfoArr, setUserInfoFunc) => {
     if (e.target.checked) {
         setUserInfoFunc([e.target.value, ...userInfoArr]);
@@ -18,7 +17,6 @@ export const handleClicked = (e, setCheckedFunc, userInfoArr, setUserInfoFunc) =
     }
 }
 
-
 export const handleOverlayClicked = (e, setCheckedFunc, userInfoArr, setUserInfoFunc) => {
     const input = e.target.offsetParent.childNodes[1];
     input.checked = false;
@@ -29,10 +27,15 @@ export const handleOverlayClicked = (e, setCheckedFunc, userInfoArr, setUserInfo
     setCheckedFunc(false);
 }
 
-
 export const handleInfoClicked = (e, setCheckedFunc, userInfoArr, setUserInfoFunc) => {
     const input = e.target.offsetParent.offsetParent.childNodes[1];
     input.checked = true;
     setUserInfoFunc([input.value, ...userInfoArr]);
     setCheckedFunc(true);
+}
+
+export const handleSubmit = (event, currentFunc, nextFunc) => {
+    event.preventDefault();
+    currentFunc(false);
+    nextFunc(true);
 }

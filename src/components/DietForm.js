@@ -8,10 +8,10 @@ import grain from '../assets/grain.png';
 import peanut from '../assets/peanut.png';
 
 import { useState } from 'react';
-import { handleClicked, handleOverlayClicked, handleInfoClicked } from '../customFunctions/handleClicks';
+import { handleClicked, handleOverlayClicked, handleInfoClicked, handleSubmit } from '../customFunctions/handleClicks';
 
 const DietForm = (props) => {
-    const {breakPoints, userDiet, setUserDiet} = props;
+    const {breakPoints, userDiet, setUserDiet, setIsThirdQuestion, setIsFourthQuestion} = props;
     const [isGlutenChecked, setIsGlutenChecked] = useState(false);
     const [isKetogenicChecked, setIsKetogenicChecked] = useState(false);
     const [isVegetarianChecked, setIsVegetarianChecked] = useState(false);
@@ -21,7 +21,7 @@ const DietForm = (props) => {
     const [isPaleoChecked, setIsPaleoChecked] = useState(false);
 
     return(
-        <form name="dietForm">
+        <form name="dietForm" onSubmit={(event) => {handleSubmit(event, setIsThirdQuestion, setIsFourthQuestion)}}>
             <legend><h1>What are your dietary preferences?</h1></legend>
             <Carousel breakPoints={breakPoints}>
                 <div className="dietContainer">
@@ -102,6 +102,7 @@ const DietForm = (props) => {
                     <div className={isPaleoChecked ? 'checkedOverlay' : null} onClick={(e) => {handleOverlayClicked(e, setIsPaleoChecked, userDiet, setUserDiet)}}></div>
                 </div>
             </Carousel>
+            <button type='submit'>Next</button>
         </form>
     )
 }
