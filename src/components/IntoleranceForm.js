@@ -13,6 +13,7 @@ import treenut from '../assets/treenut.png';
 import wheat from '../assets/wheat.png';
 
 import { useState } from 'react';
+import { handleClicked, handleOverlayClicked, handleInfoClicked } from '../customFunctions/handleClicks';
 
 const IntoleranceForm = (props) => {
     const {breakPoints, setUserAllergy, userAllergy, setIsThirdQuestion, setIsSecondQuestion} = props;
@@ -30,36 +31,6 @@ const IntoleranceForm = (props) => {
     const [isTreenutChecked, setIsTreenutChecked] = useState(false);
     const [isWheatChecked, setIsWheatChecked] = useState(false);
 
-    const handleClick = (e, setAllergyFunc) => {
-        if (e.target.checked) {
-            setUserAllergy([e.target.value, ...userAllergy]);
-            setAllergyFunc(true);
-        } else {
-            let userAllergyArray = [...userAllergy];
-            setUserAllergy(userAllergyArray.filter( (i) => {
-                return i !== e.target.value;
-            }))
-            setAllergyFunc(false);
-        }
-    }
-
-    const handleOverlayClick = (e, setAllergyFunc) => {
-        const input = e.target.offsetParent.childNodes[1];
-        input.checked = false;
-        let userAllergyArray = [...userAllergy];
-        setUserAllergy(userAllergyArray.filter( (i) => {
-            return i !== input.value;
-        }))
-        setAllergyFunc(false);
-    }
-
-    const handleInfoClick = (e, setAllergyFunc) => {
-        const input = e.target.offsetParent.offsetParent.childNodes[1];
-        input.checked = true;
-        setUserAllergy([input.value, ...userAllergy]);
-        setAllergyFunc(true);
-    }
-
     const handleSubmit = () => {
         setIsSecondQuestion(false);
         setIsThirdQuestion(true);
@@ -71,135 +42,135 @@ const IntoleranceForm = (props) => {
             <Carousel breakPoints={breakPoints}>
                 <div className="allergyContainer">
                     <label htmlFor="dairy" className='dairy choice2'><span className="sr-only">Dairy</span></label>
-                    <input type="checkbox" id='dairy' value='dairy' className='sr-only' onClick={(e) => {handleClick(e, setIsDairyChecked)}}/>
-                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClick(e, setIsDairyChecked)}}>
+                    <input type="checkbox" id='dairy' value='dairy' className='sr-only' onClick={(e) => {handleClicked(e, setIsDairyChecked, userAllergy, setUserAllergy)}}/>
+                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClicked(e, setIsDairyChecked, userAllergy, setUserAllergy)}}>
                         <div className="iconContainer">
                             <img src={dairy} alt="" />
                         </div>
                         <p aria-hidden="true" className='allergyIdentifier'>Dairy</p>
                     </div>
-                    <div className={isDairyChecked ? 'allergyOverlay' : null} onClick={(e) => {handleOverlayClick(e, setIsDairyChecked)}}></div>
+                    <div className={isDairyChecked ? 'checkedOverlay' : null} onClick={(e) => {handleOverlayClicked(e, setIsDairyChecked, userAllergy, setUserAllergy)}}></div>
                 </div>
                 <div className="allergyContainer">
                     <label htmlFor="egg" className='choice2'><span className="sr-only">Egg</span></label>
-                    <input type="checkbox" id='egg' value='egg' className='sr-only' onClick={(e) => {handleClick(e, setIsEggChecked)}}/>
-                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClick(e, setIsEggChecked)}}>
+                    <input type="checkbox" id='egg' value='egg' className='sr-only' onClick={(e) => {handleClicked(e, setIsEggChecked, userAllergy, setUserAllergy)}}/>
+                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClicked(e, setIsEggChecked, userAllergy, setUserAllergy)}}>
                         <div className="iconContainer">
                             <img src={egg} alt="" />
                         </div>
                         <p aria-hidden="true" className='allergyIdentifier'>Egg</p>
                     </div>
-                    <div className={isEggChecked ? 'allergyOverlay' : null} onClick={(e) => {handleOverlayClick(e, setIsEggChecked)}}></div>
+                    <div className={isEggChecked ? 'checkedOverlay' : null} onClick={(e) => {handleOverlayClicked(e, setIsEggChecked, userAllergy, setUserAllergy)}}></div>
                 </div>
                 <div className="allergyContainer">
                     <label htmlFor="gluten" className='choice2'><span className="sr-only">Gluten</span></label>
-                    <input type="checkbox" id='gluten' value='gluten' className='sr-only' onClick={(e) => {handleClick(e, setIsGlutenChecked)}}/>
-                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClick(e, setIsGlutenChecked)}}>
+                    <input type="checkbox" id='gluten' value='gluten' className='sr-only' onClick={(e) => {handleClicked(e, setIsGlutenChecked, userAllergy, setUserAllergy)}}/>
+                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClicked(e, setIsGlutenChecked, userAllergy, setUserAllergy)}}>
                         <div className="iconContainer">
                             <img src={gluten} alt="" />
                         </div>
                         <p aria-hidden="true" className='allergyIdentifier'>Gluten</p>
                     </div>
-                    <div className={isGlutenChecked ? 'allergyOverlay' : null} onClick={(e) => {handleOverlayClick(e, setIsGlutenChecked)}}></div>
+                    <div className={isGlutenChecked ? 'checkedOverlay' : null} onClick={(e) => {handleOverlayClicked(e, setIsGlutenChecked, userAllergy, setUserAllergy)}}></div>
                 </div>
                 <div className="allergyContainer">
                     <label htmlFor="grain" className='choice2'><span className="sr-only">Grain</span></label>
-                    <input type="checkbox" id='grain' value='grain' className='sr-only' onClick={(e) => {handleClick(e, setIsGrainChecked)}}/>
-                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClick(e, setIsGrainChecked)}}>
+                    <input type="checkbox" id='grain' value='grain' className='sr-only' onClick={(e) => {handleClicked(e, setIsGrainChecked, userAllergy, setUserAllergy)}}/>
+                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClicked(e, setIsGrainChecked, userAllergy, setUserAllergy)}}>
                         <div className="iconContainer">
                             <img src={grain} alt="" />
                         </div>
                         <p aria-hidden="true" className='allergyIdentifier'>Grain</p>
                     </div>
-                    <div className={isGrainChecked ? 'allergyOverlay' : null} onClick={(e) => {handleOverlayClick(e, setIsGrainChecked)}}></div>
+                    <div className={isGrainChecked ? 'checkedOverlay' : null} onClick={(e) => {handleOverlayClicked(e, setIsGrainChecked, userAllergy, setUserAllergy)}}></div>
                 </div>
                 <div className="allergyContainer">
                     <label htmlFor="peanut" className='choice2'><span className="sr-only">Peanut</span></label>
-                    <input type="checkbox" id='peanut' value='peanut' className='sr-only' onClick={(e) => {handleClick(e, setIsPeanutChecked)}}/>
-                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClick(e, setIsPeanutChecked)}}>
+                    <input type="checkbox" id='peanut' value='peanut' className='sr-only' onClick={(e) => {handleClicked(e, setIsPeanutChecked, userAllergy, setUserAllergy)}}/>
+                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClicked(e, setIsPeanutChecked, userAllergy, setUserAllergy)}}>
                         <div className="iconContainer">
                             <img src={peanut} alt="" />
                         </div>
                         <p aria-hidden="true" className='allergyIdentifier'>Peanut</p>
                     </div>
-                    <div className={isPeanutChecked ? 'allergyOverlay' : null} onClick={(e) => {handleOverlayClick(e, setIsPeanutChecked)}}></div>
+                    <div className={isPeanutChecked ? 'checkedOverlay' : null} onClick={(e) => {handleOverlayClicked(e, setIsPeanutChecked, userAllergy, setUserAllergy)}}></div>
                 </div>
                 <div className="allergyContainer">
                     <label htmlFor="seafood" className='choice2'><span className="sr-only">Seafood</span></label>
-                    <input type="checkbox" id='seafood' value='seafood' className='sr-only' onClick={(e) => {handleClick(e, setIsSeafoodChecked)}}/>
-                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClick(e, setIsSeafoodChecked)}}>
+                    <input type="checkbox" id='seafood' value='seafood' className='sr-only' onClick={(e) => {handleClicked(e, setIsSeafoodChecked, userAllergy, setUserAllergy)}}/>
+                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClicked(e, setIsSeafoodChecked, userAllergy, setUserAllergy)}}>
                         <div className="iconContainer">
                             <img src={seafood} alt="" />
                         </div>
                         <p aria-hidden="true" className='allergyIdentifier'>Seafood</p>
                     </div>
-                    <div className={isSeafoodChecked ? 'allergyOverlay' : null} onClick={(e) => {handleOverlayClick(e, setIsSeafoodChecked)}}></div>
+                    <div className={isSeafoodChecked ? 'checkedOverlay' : null} onClick={(e) => {handleOverlayClicked(e, setIsSeafoodChecked, userAllergy, setUserAllergy)}}></div>
                 </div>
                 <div className="allergyContainer">
                     <label htmlFor="sesame" className='choice2'><span className="sr-only">Sesame</span></label>
-                    <input type="checkbox" id='sesame' value='sesame' className='sr-only' onClick={(e) => {handleClick(e, setIsSesameChecked)}}/>
-                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClick(e, setIsSesameChecked)}}>
+                    <input type="checkbox" id='sesame' value='sesame' className='sr-only' onClick={(e) => {handleClicked(e, setIsSesameChecked, userAllergy, setUserAllergy)}}/>
+                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClicked(e, setIsSesameChecked, userAllergy, setUserAllergy)}}>
                         <div className="iconContainer">
                             <img src={sesame} alt="" />
                         </div>
                         <p aria-hidden="true" className='allergyIdentifier'>Sesame</p>
                     </div>
-                    <div className={isSesameChecked ? 'allergyOverlay' : null} onClick={(e) => {handleOverlayClick(e, setIsSesameChecked)}}></div>
+                    <div className={isSesameChecked ? 'checkedOverlay' : null} onClick={(e) => {handleOverlayClicked(e, setIsSesameChecked, userAllergy, setUserAllergy)}}></div>
                 </div>
                 <div className="allergyContainer">
                     <label htmlFor="shellfish" className='choice2'><span className="sr-only">Shellfish</span></label>
-                    <input type="checkbox" id='shellfish' value='shellfish' className='sr-only' onClick={(e) => {handleClick(e, setIsShellfishChecked)}}/>
-                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClick(e, setIsShellfishChecked)}}>
+                    <input type="checkbox" id='shellfish' value='shellfish' className='sr-only' onClick={(e) => {handleClicked(e, setIsShellfishChecked, userAllergy, setUserAllergy)}}/>
+                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClicked(e, setIsShellfishChecked, userAllergy, setUserAllergy)}}>
                         <div className="iconContainer">
                             <img src={shellfish} alt="" />
                         </div>
                         <p aria-hidden="true" className='allergyIdentifier'>Shellfish</p>
                     </div>
-                    <div className={isShellfishChecked ? 'allergyOverlay' : null} onClick={(e) => {handleOverlayClick(e, setIsShellfishChecked)}}></div>
+                    <div className={isShellfishChecked ? 'checkedOverlay' : null} onClick={(e) => {handleOverlayClicked(e, setIsShellfishChecked, userAllergy, setUserAllergy)}}></div>
                 </div>
                 <div className="allergyContainer">
                     <label htmlFor="soy" className='choice2'><span className="sr-only">Soy</span></label>
-                    <input type="checkbox" id='soy' value='soy' className='sr-only' onClick={(e) => {handleClick(e, setIsSoyChecked)}}/>
-                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClick(e, setIsSoyChecked)}}>
+                    <input type="checkbox" id='soy' value='soy' className='sr-only' onClick={(e) => {handleClicked(e, setIsSoyChecked, userAllergy, setUserAllergy)}}/>
+                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClicked(e, setIsSoyChecked, userAllergy, setUserAllergy)}}>
                         <div className="iconContainer">
                             <img src={soy} alt="" />
                         </div>
                         <p aria-hidden="true" className='allergyIdentifier'>Soy</p>
                     </div>
-                    <div className={isSoyChecked ? 'allergyOverlay' : null} onClick={(e) => {handleOverlayClick(e, setIsSoyChecked)}}></div>
+                    <div className={isSoyChecked ? 'checkedOverlay' : null} onClick={(e) => {handleOverlayClicked(e, setIsSoyChecked, userAllergy, setUserAllergy)}}></div>
                 </div>
                 <div className="allergyContainer">
                     <label htmlFor="sulfite" className='choice2'><span className="sr-only">Sulfite</span></label>
-                    <input type="checkbox" id='sulfite' value='sulfite' className='sr-only' onClick={(e) => {handleClick(e, setIsSulfiteChecked)}}/>
-                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClick(e, setIsSulfiteChecked)}}>
+                    <input type="checkbox" id='sulfite' value='sulfite' className='sr-only' onClick={(e) => {handleClicked(e, setIsSulfiteChecked, userAllergy, setUserAllergy)}}/>
+                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClicked(e, setIsSulfiteChecked, userAllergy, setUserAllergy)}}>
                         <div className="iconContainer">
                             <img src={sulfite} alt="" />
                         </div>
                         <p aria-hidden="true" className='allergyIdentifier'>Sulfite</p>
                     </div>
-                    <div className={isSulfiteChecked ? 'allergyOverlay' : null} onClick={(e) => {handleOverlayClick(e, setIsSulfiteChecked)}}></div>
+                    <div className={isSulfiteChecked ? 'checkedOverlay' : null} onClick={(e) => {handleOverlayClicked(e, setIsSulfiteChecked, userAllergy, setUserAllergy)}}></div>
                 </div>
                 <div className="allergyContainer">
                     <label htmlFor="tree-nut" className='choice2'><span className="sr-only">Tree Nut</span></label>
-                    <input type="checkbox" id='tree-nut' value='tree nut' className='sr-only' onClick={(e) => {handleClick(e, setIsTreenutChecked)}}/>
-                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClick(e, setIsTreenutChecked)}}>
+                    <input type="checkbox" id='tree-nut' value='tree nut' className='sr-only' onClick={(e) => {handleClicked(e, setIsTreenutChecked, userAllergy, setUserAllergy)}}/>
+                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClicked(e, setIsTreenutChecked, userAllergy, setUserAllergy)}}>
                         <div className="iconContainer">
                             <img src={treenut} alt="" />
                         </div>
                         <p aria-hidden="true" className='allergyIdentifier'>Tree Nut</p>
                     </div>
-                    <div className={isTreenutChecked ? 'allergyOverlay' : null} onClick={(e) => {handleOverlayClick(e, setIsTreenutChecked)}}></div>
+                    <div className={isTreenutChecked ? 'checkedOverlay' : null} onClick={(e) => {handleOverlayClicked(e, setIsTreenutChecked, userAllergy, setUserAllergy)}}></div>
                 </div>
                 <div className="allergyContainer">
                     <label htmlFor="wheat" className='choice2'><span className="sr-only">wheat</span></label>
-                    <input type="checkbox" id='wheat' value='wheat' className='sr-only' onClick={(e) => {handleClick(e, setIsWheatChecked)}}/>
-                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClick(e, setIsWheatChecked)}}>
+                    <input type="checkbox" id='wheat' value='wheat' className='sr-only' onClick={(e) => {handleClicked(e, setIsWheatChecked, userAllergy, setUserAllergy)}}/>
+                    <div className="allergyInfoContainer" onClick={(e) => {handleInfoClicked(e, setIsWheatChecked, userAllergy, setUserAllergy)}}>
                         <div className="iconContainer">
                             <img src={wheat} alt="" />
                         </div>
                         <p aria-hidden="true" className='allergyIdentifier'>Wheat</p>
                     </div>
-                    <div className={isWheatChecked ? 'allergyOverlay' : null} onClick={(e) => {handleOverlayClick(e, setIsWheatChecked)}}></div>
+                    <div className={isWheatChecked ? 'checkedOverlay' : null} onClick={(e) => {handleOverlayClicked(e, setIsWheatChecked, userAllergy, setUserAllergy)}}></div>
                 </div>
             </Carousel>
             <button type='submit' onClick={handleSubmit}>Next</button>

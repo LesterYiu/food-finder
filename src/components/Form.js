@@ -5,7 +5,8 @@ import IntoleranceForm from "./IntoleranceForm";
 import DietForm from "./DietForm";
 
 const breakPoints = [
-    {width: 1, itemsToShow: 2},
+    {width: 150, itemsToShow: 1},
+    {width: 400, itemsToShow: 2},
     {width: 550, itemsToShow: 3},
     {width: 768, itemsToShow: 5},
     {width: 1200, itemsToShow: 6},    
@@ -14,7 +15,7 @@ const breakPoints = [
 const Form = () => {
     const [userCuisine, setUserCuisine] = useState([]);
     const [userAllergy, setUserAllergy] = useState([]);
-    const [userDiet, setUserDiet] = useState('');
+    const [userDiet, setUserDiet] = useState([]);
     const [isFirstQuestion, setIsFirstQuestion] = useState(true);
     const [isSecondQuestion, setIsSecondQuestion] = useState(false);
     const [isThirdQuestion, setIsThirdQuestion] = useState(false);
@@ -37,7 +38,7 @@ const Form = () => {
         <>
             {isFirstQuestion ? <CuisineForm breakPoints={breakPoints} setUserCuisine={setUserCuisine} userCuisine={userCuisine} setIsFirstQuestion={setIsFirstQuestion} setIsSecondQuestion={setIsSecondQuestion}/> : null}
             {isSecondQuestion ? <IntoleranceForm breakPoints={breakPoints} setUserAllergy={setUserAllergy} userAllergy={userAllergy} setIsThirdQuestion={setIsThirdQuestion} setIsSecondQuestion={setIsSecondQuestion}/> : null}
-            {isThirdQuestion ? <DietForm breakPoints={breakPoints} /> : null}
+            {isThirdQuestion ? <DietForm breakPoints={breakPoints} userDiet={userDiet} setUserDiet={setUserDiet}/> : null}
         </>
     )
 }
