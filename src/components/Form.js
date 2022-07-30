@@ -3,7 +3,7 @@ import { useState } from 'react';
 import CuisineForm from './CuisineForm';
 import IntoleranceForm from "./IntoleranceForm";
 import DietForm from "./DietForm";
-import TypeForm from "./TypeForm";
+import IngredientForm from "./IngredientForm";
 
 const breakPoints = [
     {width: 150, itemsToShow: 1},
@@ -41,7 +41,7 @@ const Form = () => {
             {isFirstQuestion ? <CuisineForm breakPoints={breakPoints} setUserCuisine={setUserCuisine} userCuisine={userCuisine} setIsFirstQuestion={setIsFirstQuestion} setIsSecondQuestion={setIsSecondQuestion}/> : null}
             {isSecondQuestion ? <IntoleranceForm breakPoints={breakPoints} setUserAllergy={setUserAllergy} userAllergy={userAllergy} setIsThirdQuestion={setIsThirdQuestion} setIsSecondQuestion={setIsSecondQuestion}/> : null}
             {isThirdQuestion ? <DietForm breakPoints={breakPoints} userDiet={userDiet} setUserDiet={setUserDiet} setIsThirdQuestion={setIsThirdQuestion} setIsFourthQuestion={setIsFourthQuestion}/> : null}
-            {isFourthQuestion ? <TypeForm></TypeForm> : null}
+            {isFourthQuestion ? <IngredientForm breakPoints={breakPoints}/> : null}
         </>
     )
 }
