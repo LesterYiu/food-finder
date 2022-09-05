@@ -9,7 +9,7 @@ const breakPoints = [
     {width: 150, itemsToShow: 1},
     {width: 400, itemsToShow: 2},
     {width: 550, itemsToShow: 3},
-    {width: 768, itemsToShow: 5},
+    {width: 768, itemsToShow: 4},
     {width: 1200, itemsToShow: 6},    
 ];
 
@@ -41,7 +41,7 @@ const Form = () => {
             {isFirstQuestion ? <CuisineForm breakPoints={breakPoints} setUserCuisine={setUserCuisine} userCuisine={userCuisine} setIsFirstQuestion={setIsFirstQuestion} setIsSecondQuestion={setIsSecondQuestion}/> : null}
             {isSecondQuestion ? <IntoleranceForm breakPoints={breakPoints} setUserAllergy={setUserAllergy} userAllergy={userAllergy} setIsThirdQuestion={setIsThirdQuestion} setIsSecondQuestion={setIsSecondQuestion}/> : null}
             {isThirdQuestion ? <DietForm breakPoints={breakPoints} userDiet={userDiet} setUserDiet={setUserDiet} setIsThirdQuestion={setIsThirdQuestion} setIsFourthQuestion={setIsFourthQuestion}/> : null}
-            {isFourthQuestion ? <IngredientForm breakPoints={breakPoints}/> : null}
+            {isFourthQuestion ? <IngredientForm/> : null}
         </>
     )
 }

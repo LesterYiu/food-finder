@@ -23,7 +23,7 @@ const DietForm = (props) => {
     return(
         <form name="dietForm" onSubmit={(event) => {handleSubmit(event, setIsThirdQuestion, setIsFourthQuestion)}}>
             <legend><h1>What are your dietary preferences?</h1></legend>
-            <Carousel breakPoints={breakPoints}>
+            <Carousel breakPoints={breakPoints} enableMouseSwipe={true}>
                 <div className="dietContainer">
                     <label htmlFor="glutenFree" className='choice2'><span className="sr-only">Gluten Free</span></label>
                     <input id="glutenFree" type="checkbox" value='gluten free' className='sr-only' onClick={(e) => {handleClicked(e, setIsGlutenChecked, userDiet, setUserDiet)}}/>

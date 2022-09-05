@@ -52,7 +52,7 @@ const CuisineForm = (props) => {
     return(
         <form name="cuisineForm" onSubmit={(event) => {handleSubmit(event, setIsFirstQuestion, setIsSecondQuestion)}}>
             <legend><h1>What type of cuisines are you craving for?</h1></legend>
-            <Carousel breakPoints={breakPoints}>
+            <Carousel breakPoints={breakPoints} enableMouseSwipe={true}>
                 <div className="foodContainer">
                     <label htmlFor="african" className={`african choice ${isAfricanChecked ? 'checked' : 'unchecked'}`}><span className='sr-only'>African</span></label>
                     <input id="african" type="checkbox" name="cuisine" value="african" className="sr-only" onClick={(e) => handleClicked(e, setIsAfricanChecked, userCuisine, setUserCuisine)} />

@@ -34,7 +34,7 @@ const IntoleranceForm = (props) => {
     return(
         <form name="intoleranceForm" onSubmit={(event) => {handleSubmit(event, setIsSecondQuestion, setIsThirdQuestion)}}>
             <legend><h1>Do you have any food allergies?</h1></legend>
-            <Carousel breakPoints={breakPoints}>
+            <Carousel breakPoints={breakPoints} enableMouseSwipe={true}>
                 <div className="allergyContainer">
                     <label htmlFor="dairy" className='dairy choice2'><span className="sr-only">Dairy</span></label>
                     <input type="checkbox" id='dairy' value='dairy' className='sr-only' onClick={(e) => {handleClicked(e, setIsDairyChecked, userAllergy, setUserAllergy)}}/>

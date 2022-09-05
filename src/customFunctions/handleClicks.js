@@ -28,10 +28,18 @@ export const handleOverlayClicked = (e, setCheckedFunc, userInfoArr, setUserInfo
 }
 
 export const handleInfoClicked = (e, setCheckedFunc, userInfoArr, setUserInfoFunc) => {
-    const input = e.target.offsetParent.offsetParent.childNodes[1];
-    input.checked = true;
-    setUserInfoFunc([input.value, ...userInfoArr]);
-    setCheckedFunc(true);
+
+    if (e.target.className === 'dietInfoContainer') {
+        const input = e.target.offsetParent.childNodes[1];
+        input.checked = true;
+        setUserInfoFunc([input.value, ...userInfoArr]);
+        setCheckedFunc(true);        
+    } else {
+        const input = e.target.offsetParent.offsetParent.childNodes[1];
+        input.checked = true;
+        setUserInfoFunc([input.value, ...userInfoArr]);
+        setCheckedFunc(true);
+    }
 }
 
 export const handleSubmit = (event, currentFunc, nextFunc) => {
